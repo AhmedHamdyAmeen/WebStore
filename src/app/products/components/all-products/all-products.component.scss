@@ -17,6 +17,12 @@
 
   .body {
     // padding-top: 0px;
+    p {
+      max-height: 100px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
   }
 
   p {

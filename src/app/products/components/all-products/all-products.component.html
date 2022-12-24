@@ -5,26 +5,27 @@
     <select class="form-control w-25">
       <option value="1">Option 1</option>
       <option value="2">Option 2</option>
-      <option value="3">Option 3</option> 
+      <option value="3">Option 3</option>
       <option value="4">Option 4</option>
     </select>
   </div>
 
-  <div class="col-md-3 col-sm-12">
-    <div class="item">
-      <img
-        src="https://images.pexels.com/photos/1591447/pexels-photo-1591447.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-        alt=""
-      />
+  <div
+    class="col-md-3 col-sm-12 card-group"
+    style="width: 18rem"
+    *ngFor="let product of products"
+  >
+    <div class="item card">
+      <img [src]="product.image" alt="" />
 
-      <div class="body">
-        <h4>Some Title</h4>
-        <p>Test Add Description</p>
+      <div class="body card-body">
+        <h4 class="card-title">{{ product.title }}</h4>
+        <p class="card-text">{{ product.description }}</p>
       </div>
 
       <div class="px-3 mb-2 d-flex justify-content-between align-items-center">
         <button class="btn btn-success">Add To Cart</button>
-        <span>50 L.E</span>
+        <span>{{ product.price }} L.E</span>
       </div>
     </div>
   </div>
