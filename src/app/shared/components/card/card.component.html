@@ -1,0 +1,13 @@
+<div class="item card h-100">
+  <img [src]="cardData.image" alt="" />
+
+  <div class="body card-body">
+    <h4 class="card-title">{{ cardData.title }}</h4>
+    <p class="card-text">{{ cardData.description }}</p>
+  </div>
+
+  <div class="px-3 mb-2 d-flex justify-content-between align-items-center">
+    <button class="btn btn-success">Add To Cart</button>
+    <span>{{ cardData.price }} L.E</span>
+  </div>
+</div>

@@ -11,4 +11,14 @@ export class ProductsService {
   getAllProducts() {
     return this.http.get(environment.baseUrl + '/products');
   }
+
+  getAllCategories() {
+    return this.http.get(environment.baseUrl + '/products/categories');
+  }
+
+  getProductsByCategory(category: string) {
+    return this.http.get(
+      environment.baseUrl + `/products/category/${category}`
+    );
+  }
 }

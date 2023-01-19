@@ -1,3 +1,7 @@
+/**
+ * AppModule is a root module
+ * while other modules in the app (ex: SharedModule) is a feature modules
+ */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
