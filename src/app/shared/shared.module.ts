@@ -10,6 +10,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
 import { SelectComponent } from './components/select/select.component';
 import { CardComponent } from './components/card/card.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,13 +20,15 @@ import { CardComponent } from './components/card/card.component';
     SelectComponent,
     CardComponent,
   ],
-  imports: [CommonModule, RouterModule, HttpClientModule],
+  imports: [CommonModule, RouterModule, HttpClientModule, FormsModule],
   exports: [
     HeaderComponent,
     FooterComponent,
     SpinnerComponent,
     SelectComponent,
     CardComponent,
+    FormsModule,
+    RouterModule,
   ],
 })
 export class SharedModule {}

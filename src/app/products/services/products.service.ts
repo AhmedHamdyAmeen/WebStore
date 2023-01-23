@@ -21,4 +21,8 @@ export class ProductsService {
       environment.baseUrl + `/products/category/${category}`
     );
   }
+
+  getSingleProductByID(id: string) {
+    return this.http.get(environment.baseUrl + `/products/${id}`);
+  }
 }

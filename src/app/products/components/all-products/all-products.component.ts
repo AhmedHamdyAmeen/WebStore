@@ -13,6 +13,8 @@ export class AllProductsComponent implements OnInit {
   categories: string[] = [];
   isLoading: Boolean = false;
 
+  CartProduct: { data: Product; quantity: number }[] = [];
+
   constructor(private prdService: ProductsService) {}
 
   ngOnInit(): void {
@@ -77,5 +79,38 @@ export class AllProductsComponent implements OnInit {
         this.isLoading = false;
       }
     );
+  }
+
+  /**
+   * Add Product to Cart (Save product to localStorage)
+   * @param p Product data (data, quantity)
+   */
+  addProductToCart(p: any) {
+    console.log(p);
+
+    if ('cartProduct' in localStorage) {
+      /**
+       * If the product added already to the cardProduct localStorage
+       */
+      if (this.CartProduct.find((item) => item.data.id == p.data.id)) {
+        alert('This product is already added to cart previously !');
+      } else {
+        // Get the product Saved in the localStorage
+        this.CartProduct = [
+          ...JSON.parse(localStorage.getItem('cartProduct')!),
+        ];
+
+        // push the newly added product to the CartProduct
+        this.CartProduct.push(p);
+
+        // Save the Updated CartProduct ot the localStorage again
+        localStorage.setItem('cartProduct', JSON.stringify(this.CartProduct));
+      }
+    } else {
+      // Create cartProduct localStorage
+      localStorage.setItem('cartProduct', JSON.stringify(this.CartProduct));
+    }
+
+    console.log(this.CartProduct);
   }
 }

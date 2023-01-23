@@ -7,7 +7,25 @@
   </div>
 
   <div class="px-3 mb-2 d-flex justify-content-between align-items-center">
-    <button class="btn btn-success">Add To Cart</button>
+    <!-- <button class="btn btn-success" (click)="cartProduct.emit(cardData)">Add To Cart</button> -->
+    <button
+      class="btn btn-success"
+      *ngIf="!isAmountAdded"
+      (click)="isAmountAdded = true"
+    >
+      Add To Cart
+    </button>
+
+    <div class="d-flex w-25" *ngIf="isAmountAdded">
+      <input
+        type="number"
+        class="form-conrol me-2 productAmount"
+        name="productAmount"
+        [(ngModel)]="productAmount"
+      />
+      <button class="btn btn-danger" (click)="addToCart()">add</button>
+    </div>
+
     <span>{{ cardData.price }} L.E</span>
   </div>
 </div>
