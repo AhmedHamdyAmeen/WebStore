@@ -108,6 +108,7 @@ export class AllProductsComponent implements OnInit {
       }
     } else {
       // Create cartProduct localStorage
+      this.CartProduct.push(p);
       localStorage.setItem('cartProduct', JSON.stringify(this.CartProduct));
     }
 

@@ -10,10 +10,19 @@ import { SharedModule } from './shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductsModule } from './products/products.module';
+import { CartModule } from './cart/cart.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, SharedModule, ProductsModule],
+  imports: [
+    // You Should import all the project modules in the root module (AppModule)
+    BrowserModule,
+    AppRoutingModule,
+    ProductsModule,
+    CartModule,
+    SharedModule,
+  ],
+
   providers: [],
   bootstrap: [AppComponent],
 })

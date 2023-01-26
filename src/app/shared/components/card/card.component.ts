@@ -11,7 +11,7 @@ export class CardComponent implements OnInit {
 
   isAmountAdded: boolean = false;
 
-  productAmount: number = 0;
+  productAmount: number = 1;
 
   constructor() {}
 

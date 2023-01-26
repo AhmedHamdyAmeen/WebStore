@@ -1,1 +1,86 @@
-<p>cart works!</p>
+<div class="cartBox">
+  <h1 class="terxt-danger">Shopping Cart</h1>
+
+  <div class="cartHead">
+    <p class="lead">
+      You have <label class="text-danger">{{ CartProduct.length }}</label> item
+      in your cart
+    </p>
+    <span class="text-danger card-header" (click)="clearCart()"
+      >Clear Shopping Cart</span
+    >
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Name</th>
+        <th>Price</th>
+        <th style="width: 25%">Quantity</th>
+        <th>Total</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngIf="CartProduct.length == 0">
+        <td></td>
+        <td></td>
+        <td class="text-danger">No Product in your cart yet! 🤷‍♀️😢😔</td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+
+      <tr *ngFor="let cartItem of CartProduct; let i = index">
+        <td><img src="{{ cartItem.data.image }}" alt="" /></td>
+        <td>{{ cartItem.data.title }}</td>
+        <td>{{ cartItem.data.price }} L.E</td>
+        <td>
+          <div class="quantity">
+            <button class="btn btn-dark" (click)="increaseQuantity(i)">
+              +
+            </button>
+            <input
+              type="number"
+              class="form-control"
+              [(ngModel)]="cartItem.quantity"
+              (change)="detectQuantityChange()"
+              min="1"
+            />
+            <button class="btn btn-dark" (click)="decreaseQuantity(i)">
+              -
+            </button>
+          </div>
+        </td>
+
+        <td>{{ (cartItem.data.price * cartItem.quantity).toFixed(2) }} L.E</td>
+        <td>
+          <button class="btn btn-danger" (click)="deleteCartItem(i)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+
+    <tfoot>
+      <tr>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th>Total: {{ total.toFixed(2) }} L.E</th>
+        <th>
+          <button class="btn btn-success" (click)="submitOrder()">
+            Order Now
+          </button>
+        </th>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+
+<div class="alert alert-success" role="alert" *ngIf="isOrderSubmitted">
+  <strong>Well done!</strong> Your Order is successfully sended.
+</div>

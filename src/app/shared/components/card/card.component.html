@@ -1,7 +1,7 @@
 <div class="item card h-100">
   <img [src]="cardData.image" alt="" />
 
-  <div class="body card-body">
+  <div class="body card-body" routerLink="/details/{{ cardData.id }}">
     <h4 class="card-title">{{ cardData.title }}</h4>
     <p class="card-text">{{ cardData.description }}</p>
   </div>
@@ -23,7 +23,12 @@
         name="productAmount"
         [(ngModel)]="productAmount"
       />
-      <button class="btn btn-danger" (click)="addToCart()">add</button>
+      <button
+        class="btn btn-danger"
+        (click)="addToCart(); isAmountAdded = false"
+      >
+        add
+      </button>
     </div>
 
     <span>{{ cardData.price }} L.E</span>
