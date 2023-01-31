@@ -16,19 +16,26 @@
       Add To Cart
     </button>
 
-    <div class="d-flex w-25" *ngIf="isAmountAdded">
-      <input
-        type="number"
-        class="form-conrol me-2 productAmount"
-        name="productAmount"
-        [(ngModel)]="productAmount"
-      />
-      <button
-        class="btn btn-danger"
-        (click)="addToCart(); isAmountAdded = false"
-      >
-        add
-      </button>
+    <div class="w-25" *ngIf="isAmountAdded">
+      <form action="" class="d-flex" [formGroup]="productForm">
+        <input
+          type="number"
+          class="form-conrol me-2 productAmount"
+          name="productAmount"
+          formControlName="amount"
+          [(ngModel)]="productAmount"
+        />
+
+        <button
+          class="btn btn-danger"
+          (click)="addToCart(); isAmountAdded = false"
+        >
+          add
+        </button>
+      </form>
+      <p class="alert alert-danger" *ngIf="productForm.invalid">
+        You should enter a product number.
+      </p>
     </div>
 
     <span>{{ cardData.price }} L.E</span>

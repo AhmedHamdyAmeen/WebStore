@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -20,7 +20,13 @@ import { CardComponent } from './components/card/card.component';
     SelectComponent,
     CardComponent,
   ],
-  imports: [CommonModule, FormsModule, RouterModule, HttpClientModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    RouterModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+  ],
   exports: [
     FormsModule,
     RouterModule,
@@ -29,6 +35,7 @@ import { CardComponent } from './components/card/card.component';
     SpinnerComponent,
     SelectComponent,
     CardComponent,
+    ReactiveFormsModule,
   ],
 })
 export class SharedModule {}

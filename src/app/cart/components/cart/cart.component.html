@@ -42,13 +42,21 @@
             <button class="btn btn-dark" (click)="increaseQuantity(i)">
               +
             </button>
-            <input
-              type="number"
-              class="form-control"
-              [(ngModel)]="cartItem.quantity"
-              (change)="detectQuantityChange()"
-              min="1"
-            />
+
+            <form action="" class="inline-block" [formGroup]="cartForm">
+              <input
+                type="number"
+                class="form-control"
+                formControlName="amount"
+                [(ngModel)]="cartItem.quantity"
+                (ngModelChange)="detectQuantityChange()"
+                min="1"
+              />
+              <p class="alert alert-danger" *ngIf="cartForm.invalid">
+                You should enter a product number.
+              </p>
+            </form>
+
             <button class="btn btn-dark" (click)="decreaseQuantity(i)">
               -
             </button>

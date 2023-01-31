@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-card',
@@ -10,8 +11,11 @@ export class CardComponent implements OnInit {
   @Output() cartProduct: EventEmitter<any> = new EventEmitter(); // Product added to cart
 
   isAmountAdded: boolean = false;
-
   productAmount: number = 1;
+
+  productForm: FormGroup = new FormGroup({
+    amount: new FormControl(null, Validators.required),
+  });
 
   constructor() {}
 

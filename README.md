@@ -29,6 +29,14 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
+## Project Structure:
+
+The E-Commerce app consist of:
+
+- Products Page
+- Product Detail Page
+- Cart Page
+
 ## Credits
 
 This frontend app couldn't be done without the efforts made by [Mohammad Reza @keikaavousi](https://github.com/keikaavousi) on his easy to use [Fake Store API](https://fakestoreapi.com/), Thanks **Mohammad**, you built an api that made my learning journey easier.

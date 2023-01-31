@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from './../../../_models/product';
 import { CartsService } from './../../services/carts.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-cart',
@@ -12,6 +13,10 @@ export class CartComponent implements OnInit {
   productQuantity: any = 1;
   total: number = 0;
   isOrderSubmitted: boolean = false;
+
+  cartForm: FormGroup = new FormGroup({
+    amount: new FormControl(null, Validators.required),
+  });
 
   constructor(private cartSr: CartsService) {}
 

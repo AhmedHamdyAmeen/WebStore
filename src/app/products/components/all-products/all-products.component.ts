@@ -112,6 +112,7 @@ export class AllProductsComponent implements OnInit {
       localStorage.setItem('cartProduct', JSON.stringify(this.CartProduct));
     }
 
+    alert('Product Added Successfully');
     console.log(this.CartProduct);
   }
 }
